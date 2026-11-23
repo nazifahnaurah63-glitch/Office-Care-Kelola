@@ -1,11 +1,8 @@
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
-
 
 body {
     margin: 0;
@@ -46,9 +43,7 @@ body {
     flex-shrink: 0;
 }
 
-
 .brand h1 {
-    font-family: 'Nunito', sans-serif;
     font-size: 48px;
     font-weight: 800;
     letter-spacing: 0;
@@ -56,11 +51,10 @@ body {
     color: #12284d;
 }
 
-
 .login-card {
     width: 100%;
     max-width: 628px;
-    padding: 42px 32px 36px;
+    padding: 42px 32px 45px;
     background: rgba(255, 255, 255, 0.96);
     border: 1px solid #d8e1f4;
     border-radius: 21px;
@@ -69,9 +63,9 @@ body {
 
 .login-card h2 {
     font-size: 40px;
-    font-weight: 700;
+    font-weight: 800;
     line-height: 1.25;
-    margin-bottom: 18px;
+    margin-bottom: 10px;
     color: #12284d;
 }
 
@@ -82,20 +76,17 @@ body {
     margin-bottom: 32px;
 }
 
-
 .form-group {
     margin-bottom: 30px;
 }
 
-
 .form-group label {
     display: block;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 400;
     color: #12284d;
     margin-bottom: 5px;
 }
-
 
 .form-group input {
     display: block;
@@ -106,7 +97,6 @@ body {
     border-radius: 11px;
     background: #edf3ff;
     color: #12284d;
-    font-family: inherit;
     font-size: 18px;
     outline: none;
     transition: border-color 0.2s, box-shadow 0.2s;
@@ -121,33 +111,43 @@ body {
     box-shadow: 0 0 0 3px rgba(80, 120, 200, 0.12);
 }
 
-
 .password-wrapper {
     position: relative;
+    width: 100%;
 }
 
 .password-wrapper input {
-    padding-right: 55px;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 55px 0 20px;
 }
 
 .toggle-password {
     position: absolute;
-    right: 10px;
     top: 50%;
+    right: 12px;
     transform: translateY(-50%);
-    width: 32px;
-    height: 32px;
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 32px;
+    height: 32px;
+    padding: 4px;
     border: none;
     border-radius: 50%;
-    background: #f2f3f5;
-    color: #657995;
-    font-size: 20px;
+    background: transparent;
+    color: #64748b;
     cursor: pointer;
 }
 
+.toggle-password:hover {
+    color: #244b91;
+}
+
+.toggle-password:focus-visible {
+    outline: 2px solid #5479c7;
+    border-radius: 4px;
+}
 
 .form-options {
     display: flex;
@@ -155,8 +155,8 @@ body {
     justify-content: space-between;
     gap: 12px;
     margin-top: -17px;
-    margin-bottom: 62px;
-    font-size: 15px;
+    margin-bottom: 55px;
+    font-size: 16px;
 }
 
 .remember {
@@ -184,7 +184,6 @@ body {
     text-decoration: underline;
 }
 
-
 .login-button {
     display: block;
     width: 100%;
@@ -194,11 +193,10 @@ body {
     border-radius: 11px;
     background: #ed174c;
     color: #ffffff;
-    font-family: inherit;
     font-size: 20px;
     font-weight: 700;
     cursor: pointer;
-    box-shadow: 0 12px 22px rgba(237, 23, 76, 0.16);
+    box-shadow: 0 6px 20px rgba(237, 23, 76, 0.35);
     transition: background 0.2s, transform 0.2s;
 }
 
@@ -209,25 +207,6 @@ body {
 .login-button:active {
     transform: scale(0.99);
 }
-
-
-.register-link {
-    margin-top: 22px;
-    text-align: center;
-    color: #687b98;
-    font-size: 18px;
-    line-height: 1.5;
-}
-
-.register-link a {
-    color: #ed174c;
-    text-decoration: none;
-}
-
-.register-link a:hover {
-    text-decoration: underline;
-}
-
 
 @media (max-width: 600px) {
     body {
@@ -245,14 +224,14 @@ body {
     }
 
     .brand-image {
-    display: block;
-    width: 72px;
-    height: 72px;
-    object-fit: contain;
-    flex-shrink: 0;
-    border-radius: 14px;
-    overflow: hidden;
-}
+        display: block;
+        width: 72px;
+        height: 72px;
+        object-fit: contain;
+        flex-shrink: 0;
+        border-radius: 14px;
+        overflow: hidden;
+    }
 
     .brand h1 {
         font-size: 30px;
@@ -311,45 +290,16 @@ body {
         min-height: 52px;
         font-size: 17px;
     }
-
-    .register-link {
-        font-size: 14px;
-        margin-top: 18px;
-    }
 }
 
-.password-wrapper {
-    position: relative;
-    width: 100%;
+input[type="password"]::-ms-reveal,
+input[type="password"]::-ms-clear {
+    display: none !important;
 }
 
-.password-wrapper input {
-    width: 100%;
-    box-sizing: border-box;
-    padding: 12px 45px 12px 14px;
-}
-
-.toggle-password {
+input[type="password"]::-webkit-credentials-auto-fill-button {
+    visibility: hidden;
+    pointer-events: none;
     position: absolute;
-    top: 50%;
-    right: 12px;
-    transform: translateY(-50%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 4px;
-    border: none;
-    background: transparent;
-    color: #64748b;
-    cursor: pointer;
+    right: 0;
 }
-
-.toggle-password:hover {
-    color: #244b91;
-}
-
-.toggle-password:focus-visible {
-    outline: 2px solid #5479c7;
-    border-radius: 4px;
-}
-

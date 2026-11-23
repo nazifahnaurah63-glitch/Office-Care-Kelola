@@ -1,36 +1,26 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lupa Password | Kelola Apps</title>
-
     <link rel="stylesheet" href="{{ asset('css/forgot-password.css') }}">
 </head>
 <body>
-
     <main class="forgot-page">
-
-        <!-- Logo dan Nama Aplikasi -->
         <header class="brand">
             <img
                 src="{{ asset('images/Logo.PNG.png') }}"
                 alt="Logo Office Care Kelola"
                 class="brand-image"
             >
-
             <h1>Kelola Apps</h1>
         </header>
 
-        <!-- Form Lupa Password -->
         <section class="forgot-card">
-
             <h2>Lupa Password</h2>
-
             <p class="subtitle">
-                Masukkan email Anda dan kami akan mengirimkan link
-                untuk mereset password.
+                Masukkan email Anda dan kami akan mengirimkan link untuk mereset password.
             </p>
 
             <form action="#" method="POST">
@@ -38,7 +28,6 @@
 
                 <div class="form-group">
                     <label for="email">Email</label>
-
                     <input
                         type="email"
                         id="email"
@@ -52,10 +41,8 @@
                 <button type="submit" class="reset-button">
                     Kirim Link Reset Password
                 </button>
-
             </form>
 
-            <!-- Kembali ke Login -->
             <div class="back-login">
                 <a href="{{ url('/login') }}">
                     <svg
@@ -72,14 +59,10 @@
                         <path d="M19 12H5"/>
                         <path d="M12 19l-7-7 7-7"/>
                     </svg>
-
                     Kembali ke Login
                 </a>
             </div>
-
         </section>
-
     </main>
-
 </body>
 </html>

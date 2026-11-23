@@ -1,0 +1,75 @@
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #ffffff;
+    padding: 12px 30px;
+    border-radius: 16px;
+    box-shadow: 0 5px 9px rgba(0, 0, 0, .12);
+    margin-bottom: 5px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.top-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.top-logo img {
+    width: 46px;
+    height: 48px;
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+.top-logo-text strong {
+    display: block;
+    font-size: 31px;
+    font-weight: 500;
+    color: #1d2936;
+}
+
+.top-logo-text small {
+    display: block;
+    font-size: 9px;
+    color: #8b8e9b;
+    letter-spacing: 2px;
+}
+
+.top-actions {
+    display: flex;
+    align-items: center;
+    gap: 27px;
+}
+
+.top-actions input {
+    width: 290px;
+    height: 56px;
+    border: 1px solid #ccc;
+    border-radius: 9px;
+    padding: 0 17px;
+    font-size: 16px;
+}
+
+.notification {
+    font-size: 27px;
+    color: #686868;
+}
+
+.avatar {
+    width: 63px;
+    height: 63px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: #d6e7f6;
+    color: #315887;
+    font-size: 24px;
+}
+
+.app.sidebar-collapsed .main-content {
+    margin-left: 80px;
+    width: calc(100% - 80px);
+}

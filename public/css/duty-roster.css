@@ -1,0 +1,2372 @@
+/* DUTY ROSTER */
+.roster-panel {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 3px 20px rgba(237, 23, 76, .06);
+    padding: 24px;
+    margin-bottom: 25px;
+    min-width: 0;
+}
+
+.roster-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    margin-bottom: 25px;
+}
+
+.roster-toolbar h2 {
+    font-size: 22px;
+    color: #292929;
+    margin-bottom: 7px;
+}
+
+.roster-toolbar p,
+.member-section-heading p {
+    color: #858585;
+    font-size: 13px;
+}
+
+.add-roster-btn,
+.save-roster-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 18px;
+    border: none;
+    border-radius: 7px;
+    background: #ed174c;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .2s;
+}
+
+.add-roster-btn:hover,
+.save-roster-btn:hover {
+    background: #d90f40;
+}
+
+.add-roster-btn span {
+    font-size: 20px;
+}
+
+.calendar-toolbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 22px;
+}
+
+.calendar-toolbar h3 {
+    min-width: 180px;
+    text-align: center;
+    font-size: 20px;
+    color: #292929;
+}
+
+.month-arrow {
+    width: 34px;
+    height: 34px;
+    display: grid;
+    place-items: center;
+    border: 1px solid #e5e5e5;
+    border-radius: 7px;
+    color: #ed174c;
+    text-decoration: none;
+    font-size: 25px;
+}
+
+.month-arrow:hover {
+    background: #fce5ec;
+}
+
+.today-link {
+    padding: 8px 12px;
+    border: 1px solid #ed174c;
+    border-radius: 6px;
+    color: #ed174c;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.calendar-scroll {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(105px, 1fr));
+    border-top: 1px solid #e7e7e7;
+    border-left: 1px solid #e7e7e7;
+    min-width: 735px;
+}
+
+.calendar-weekday {
+    padding: 13px 5px;
+    background: #fce7ed;
+    color: #d90042;
+    font-size: 12px;
+    font-weight: 700;
+    text-align: center;
+    border-right: 1px solid #e7e7e7;
+    border-bottom: 1px solid #e7e7e7;
+}
+
+.calendar-day {
+    min-height: 135px;
+    padding: 9px;
+    border-right: 1px solid #e7e7e7;
+    border-bottom: 1px solid #e7e7e7;
+    background: #fff;
+    min-width: 0;
+}
+
+.calendar-day.is-today {
+    background: #fff9fb;
+}
+
+.day-number {
+    display: grid;
+    place-items: center;
+    width: 28px;
+    height: 28px;
+    margin-bottom: 8px;
+    border-radius: 50%;
+    color: #333;
+    font-weight: 600;
+}
+
+.is-today .day-number {
+    background: #ed174c;
+    color: #fff;
+}
+
+.other-month {
+    background: #fafafa;
+}
+
+.other-month .day-number {
+    color: #b8b8b8;
+}
+
+.roster-event {
+    padding: 8px;
+    border-left: 3px solid #ed174c;
+    border-radius: 4px;
+    background: #fff0f4;
+    overflow-wrap: anywhere;
+}
+
+.event-title {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 7px;
+    color: #d90042;
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.event-dot,
+.calendar-legend i {
+    width: 7px;
+    height: 7px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: #ed174c;
+}
+
+.member-name {
+    margin-top: 5px;
+    color: #454253;
+    font-size: 11px;
+    line-height: 1.4;
+}
+
+.empty-day {
+    display: block;
+    color: #c0c0c0;
+    font-size: 10px;
+    margin-top: 4px;
+}
+
+.inactive-label {
+    display: inline-block;
+    margin-top: 7px;
+    padding: 3px 6px;
+    border-radius: 4px;
+    background: #eee;
+    color: #666;
+    font-size: 10px;
+}
+
+.delete-roster-form {
+    margin-top: 8px;
+}
+
+.delete-roster-form button {
+    padding: 4px 7px;
+    border: 1px solid #ed174c;
+    border-radius: 4px;
+    background: #fff;
+    color: #ed174c;
+    font-size: 10px;
+    cursor: pointer;
+}
+
+.delete-roster-form button:hover {
+    background: #ed174c;
+    color: #fff;
+}
+
+.calendar-legend {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding-top: 18px;
+    color: #555;
+    font-size: 12px;
+}
+
+.calendar-legend > span:first-child {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.legend-muted {
+    color: #888;
+}
+
+.roster-alert {
+    padding: 13px 16px;
+    margin-bottom: 20px;
+    border-radius: 7px;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.success-alert {
+    background: #e1f8e9;
+    color: #16783c;
+    border: 1px solid #b6ebc8;
+}
+
+.error-alert {
+    background: #fff0f0;
+    color: #bd243b;
+    border: 1px solid #ffd0d0;
+}
+
+.error-alert ul {
+    padding-left: 20px;
+    margin-top: 5px;
+}
+
+/* MODAL ADD DUTY ROSTER */
+.roster-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 18px;
+}
+
+.roster-modal.show {
+    display: flex;
+}
+
+.roster-modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(28, 25, 35, .48);
+    backdrop-filter: blur(2px);
+}
+
+.roster-modal-card {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 510px;
+    max-height: 92vh;
+    overflow-y: auto;
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, .2);
+    animation: rosterModalIn .2s ease-out;
+}
+
+@keyframes rosterModalIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modal-heading {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 22px 24px;
+    border-bottom: 1px solid #eee;
+}
+
+.modal-heading h2 {
+    margin-bottom: 6px;
+    font-size: 21px;
+    color: #292929;
+}
+
+.modal-heading p {
+    color: #888;
+    font-size: 12px;
+}
+
+.modal-close {
+    width: 32px;
+    height: 32px;
+    border: none;
+    border-radius: 6px;
+    background: #f5f5f5;
+    color: #666;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.modal-close:hover {
+    background: #fce5ec;
+    color: #ed174c;
+}
+
+.modal-body {
+    padding: 22px 24px;
+}
+
+.modal-body > label,
+.form-field label {
+    display: block;
+    margin-bottom: 8px;
+    color: #454253;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.modal-body label span {
+    color: #ed174c;
+}
+
+.modal-body input[type="date"],
+.form-field select {
+    width: 100%;
+    height: 43px;
+    padding: 0 12px;
+    border: 1px solid #dcdce2;
+    border-radius: 6px;
+    background: #fff;
+    color: #292929;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    outline: none;
+}
+
+.modal-body input[type="date"]:focus,
+.form-field select:focus {
+    border-color: #ed174c;
+    box-shadow: 0 0 0 3px rgba(237, 23, 76, .09);
+}
+
+.member-section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin: 25px 0 17px;
+}
+
+.member-section-heading h3 {
+    margin-bottom: 5px;
+    font-size: 15px;
+}
+
+.member-section-heading > span {
+    padding: 5px 9px;
+    border-radius: 20px;
+    background: #fce5ec;
+    color: #d90042;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.form-field {
+    margin-bottom: 15px;
+}
+
+.form-field label {
+    margin-bottom: 7px;
+}
+
+.form-note {
+    margin-top: 4px;
+    color: #888;
+    font-size: 11px;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    padding: 16px 24px 22px;
+    border-top: 1px solid #eee;
+}
+
+.cancel-btn {
+    padding: 11px 17px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background: #fff;
+    color: #555;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.cancel-btn:hover {
+    background: #f5f5f5;
+}
+
+.save-roster-btn {
+    padding: 11px 17px;
+}
+
+@media (max-width: 760px) {
+    .roster-panel {
+        padding: 15px;
+    }
+
+    .roster-toolbar {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .calendar-toolbar {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .calendar-toolbar h3 {
+        min-width: 150px;
+        font-size: 17px;
+    }
+
+    .calendar-day {
+        min-height: 115px;
+        padding: 6px;
+    }
+
+    .roster-event {
+        padding: 5px;
+    }
+
+    .member-name {
+        font-size: 10px;
+    }
+
+    .roster-modal-card {
+        max-height: 95vh;
+    }
+
+    .modal-heading,
+    .modal-body {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
+    .modal-actions {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+}
+
+/* ================================
+   TABEL DUTY ROSTER
+================================ */
+
+.roster-table-panel {
+    width: 100%;
+    margin-top: 24px;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(30, 40, 70, 0.08);
+    overflow: hidden;
+    color: #454354;
+    font-size: 14px;
+}
+
+.table-topbar {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    min-height: 46px;
+    padding: 5px 18px;
+    border-bottom: 1px solid #e6e6eb;
+}
+
+.entries-control select {
+    min-width: 70px;
+    height: 38px;
+    padding: 0 12px;
+    background: #fff;
+    border: 1px solid #d0ced8;
+    border-radius: 6px;
+    color: #454354;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.roster-table-scroll {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.roster-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: auto;
+    background: #fff;
+}
+
+.roster-table th {
+    padding: 18px 15px;
+    text-align: left;
+    font-size: 15px;
+    font-weight: 500;
+    color: #454354;
+    background: #fff;
+    border-bottom: 1px solid #e1e1e7;
+    white-space: nowrap;
+}
+
+.roster-table td {
+    padding: 15px;
+    border-bottom: 1px solid #e5e5eb;
+    vertical-align: middle;
+    color: #454354;
+    font-size: 14px;
+}
+
+.roster-table th:first-child,
+.roster-table td:first-child {
+    width: 52px;
+}
+
+.roster-table th:nth-child(2) {
+    min-width: 180px;
+}
+
+.roster-table th:nth-child(3) {
+    min-width: 260px;
+}
+
+.roster-table th:nth-child(4) {
+    min-width: 150px;
+}
+
+.roster-table th:last-child,
+.roster-table td:last-child {
+    min-width: 110px;
+    text-align: center;
+}
+
+.roster-table .filter-row th {
+    padding: 10px 15px;
+    background: #fff;
+}
+
+.filter-row input {
+    width: 150px;
+    max-width: 100%;
+    height: 32px;
+    padding: 5px 10px;
+    border: 1px solid #d0ced8;
+    border-radius: 6px;
+    outline: none;
+    font-family: inherit;
+    font-size: 13px;
+    color: #454354;
+    background: #fff;
+}
+
+.filter-row input:focus {
+    border-color: #c90028;
+    box-shadow: 0 0 0 2px rgba(201, 0, 40, 0.08);
+}
+
+.roster-table tbody tr:not(.no-data-row):hover {
+    background: #fff9fa;
+}
+
+.roster-table tbody tr[hidden] {
+    display: none !important;
+}
+
+/* Nama anggota dalam satu baris */
+
+.table-members {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0;
+}
+
+.table-members span {
+    display: inline-block;
+    padding: 2px 14px;
+    border-right: 1px solid #999;
+    line-height: 22px;
+    white-space: nowrap;
+}
+
+.table-members span:first-child {
+    padding-left: 0;
+}
+
+.table-members span:last-child {
+    border-right: none;
+}
+
+/* Status jadwal */
+
+.status-badge {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 92px;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.status-active {
+    color: #00b72e;
+    background: #e6f7e3;
+}
+
+.status-inactive {
+    color: #dc1634;
+    background: #fbe1e5;
+}
+
+/* Tombol Edit dan Hapus */
+
+.table-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.table-actions form {
+    display: inline-flex;
+    margin: 0;
+}
+
+.edit-roster-btn,
+.table-delete-btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 28px;
+    height: 30px;
+    padding: 0;
+    border: none;
+    background: transparent;
+    color: #d0002a;
+    font-family: Arial, sans-serif;
+    font-size: 21px;
+    cursor: pointer;
+}
+
+.edit-roster-btn:hover,
+.table-delete-btn:hover {
+    color: #97001e;
+    transform: scale(1.08);
+}
+
+/* Bagian bawah tabel */
+
+.table-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+    min-height: 88px;
+    padding: 18px 20px;
+    color: #a4a2ad;
+}
+
+#tableInfo {
+    font-size: 14px;
+}
+
+.table-pagination {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.table-pagination button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 38px;
+    height: 38px;
+    padding: 0 10px;
+    border: none;
+    border-radius: 50%;
+    background: #f0f0f2;
+    color: #454354;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.table-pagination button.current {
+    background: #c90028;
+    color: #fff;
+}
+
+.table-pagination button:disabled {
+    color: #b6b5bc;
+    cursor: not-allowed;
+    opacity: 0.65;
+}
+
+.table-pagination button:hover:not(:disabled):not(.current) {
+    background: #e2e2e7;
+}
+
+.table-empty {
+    padding: 25px !important;
+    text-align: center;
+    color: #a4a2ad !important;
+}
+
+.no-data-row[hidden] {
+    display: none !important;
+}
+
+/* Tampilan layar kecil */
+
+@media (max-width: 768px) {
+    .roster-table-panel {
+        margin-top: 18px;
+    }
+
+    .roster-table th,
+    .roster-table td {
+        padding: 12px;
+    }
+
+    .table-bottom {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .table-pagination {
+        flex-wrap: wrap;
+    }
+}
+
+/* ===== PERBAIKAN DESAIN MODAL DUTY ROSTER ===== */
+
+/* Ukuran dan bentuk modal */
+.roster-modal-card {
+    max-width: 700px;
+    border-radius: 10px;
+    overflow-y: auto;
+    background: #ffffff;
+}
+
+/* Header merah */
+.modal-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 18px 24px;
+    background: #ed174c;
+    border-bottom: none;
+}
+
+.modal-heading h2 {
+    margin: 0;
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.modal-heading p {
+    display: none;
+}
+
+.modal-close {
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.18);
+    color: #ffffff;
+    font-size: 25px;
+}
+
+.modal-close:hover {
+    background: #ffffff;
+    color: #ed174c;
+}
+
+/* Isi modal */
+.modal-body {
+    padding: 24px;
+}
+
+/* Tanggal mulai, tanggal selesai, dan status sejajar */
+.date-status-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+    align-items: start;
+}
+
+.date-status-grid .form-field {
+    min-width: 0;
+    margin-bottom: 0;
+}
+
+.date-status-grid .form-field label {
+    display: block;
+    margin-bottom: 8px;
+    color: #454253;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.date-status-grid input[type="date"],
+.date-status-grid select {
+    box-sizing: border-box;
+    width: 100%;
+    min-width: 0;
+    height: 42px;
+    padding: 0 9px;
+    border: 1px solid #dcdce2;
+    border-radius: 6px;
+    background: #ffffff;
+    color: #292929;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+}
+
+/* Bagian anggota piket */
+.member-section-heading {
+    margin: 24px 0 14px;
+}
+
+.member-section-heading h3 {
+    margin-bottom: 4px;
+    color: #292929;
+    font-size: 15px;
+}
+
+.member-section-heading p {
+    margin: 0;
+    color: #858585;
+    font-size: 12px;
+}
+
+.member-section-heading > span {
+    background: #fce5ec;
+    color: #d90042;
+}
+
+/* Daftar checkbox anggota */
+
+/* 4 ANGGOTA PIKET BERJAJAR KE SAMPING */
+.checkbox-member-grid {
+    display: grid !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    gap: 12px;
+    width: 100%;
+}
+
+.checkbox-member-card {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    padding: 10px 8px;
+}
+
+.checkbox-member-card input[type="checkbox"] {
+    flex-shrink: 0;
+    margin: 0;
+}
+
+.checkbox-member-card span {
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+/* Layar kecil */
+@media (max-width: 600px) {
+    .checkbox-member-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+}
+
+/* Pesan validasi */
+.modal-body .error-alert {
+    margin-bottom: 16px;
+}
+
+/* Tombol bagian bawah */
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    padding: 16px 24px 22px;
+    border-top: 1px solid #eeeeee;
+    background: #ffffff;
+}
+
+.cancel-btn {
+    min-height: 40px;
+    padding: 10px 20px;
+    border: 1px solid #dedee3;
+    border-radius: 6px;
+    background: #eeeeef;
+    color: #454253;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.save-roster-btn {
+    min-height: 40px;
+    padding: 10px 22px;
+    border-radius: 6px;
+    background: #ed174c;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+/* Tampilan layar kecil */
+@media (max-width: 600px) {
+    .roster-modal {
+        padding: 10px;
+    }
+
+    .roster-modal-card {
+        max-width: 100%;
+    }
+
+    .modal-heading,
+    .modal-body {
+        padding: 18px;
+    }
+
+    .date-status-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .checkbox-member-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .modal-actions {
+        padding: 14px 18px 18px;
+    }
+}
+
+/* TUGAS PIKET DAN 4 ANGGOTA SEJAJAR */
+
+.member-section-heading {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+    margin: 24px 0 14px;
+}
+
+.member-section-heading h3 {
+    margin: 0;
+    font-size: 15px;
+    color: #292929;
+}
+
+.member-section-heading p {
+    margin: 0;
+    font-size: 12px;
+    color: #858585;
+}
+
+.member-section-heading > span {
+    margin-top: 4px;
+}
+
+/* Empat anggota berjajar ke samping */
+.checkbox-member-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px;
+    width: 100%;
+}
+
+.checkbox-member-card {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 7px;
+    min-width: 0;
+    padding: 10px 8px;
+    border: 1px solid #e3e3e8;
+    border-radius: 7px;
+    background: #fff;
+}
+
+.checkbox-member-card span {
+    font-size: 12px;
+    overflow-wrap: anywhere;
+}
+
+.checkbox-member-card input[type="checkbox"] {
+    flex-shrink: 0;
+    margin: 0;
+    accent-color: #ed174c;
+}
+
+/* Responsif untuk layar kecil */
+@media (max-width: 600px) {
+    .checkbox-member-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* ===== PERBAIKAN MODAL DUTY ROSTER ===== */
+
+/* Header merah dan judul putih */
+.roster-modal-card .modal-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 24px;
+    background: #ed174c;
+    border: none;
+}
+
+.roster-modal-card .modal-heading h2 {
+    margin: 0;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+/* Tombol X di kanan header */
+.roster-modal-card .modal-close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    background: transparent;
+    color: #fff;
+    font-size: 24px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.roster-modal-card .modal-close:hover {
+    background: #fff;
+    color: #ed174c;
+}
+
+/* Area form */
+.roster-modal-card .modal-body {
+    padding: 24px;
+}
+
+/* Tanggal mulai, selesai, dan status sejajar */
+.roster-modal-card .date-status-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+    width: 100%;
+}
+
+.roster-modal-card .date-status-grid .form-field {
+    min-width: 0;
+    margin-bottom: 0;
+}
+
+.roster-modal-card .date-status-grid input,
+.roster-modal-card .date-status-grid select {
+    box-sizing: border-box;
+    width: 100%;
+    min-width: 0;
+}
+
+/* Pembungkus seluruh bagian anggota */
+.roster-modal-card .checkbox-member-card {
+    display: block;
+    width: 100%;
+    margin-top: 24px;
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    background: #fff;
+    box-sizing: border-box;
+}
+
+/* Judul Tugas Piket berada di atas anggota */
+.roster-modal-card .checkbox-member-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 14px;
+}
+
+.roster-modal-card .checkbox-member-title span:first-child {
+    color: #292929;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.roster-modal-card .checkbox-member-title .selected-count {
+    flex-shrink: 0;
+    padding: 5px 10px;
+    border-radius: 20px;
+    background: #fce5ec;
+    color: #d90042;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* Empat anggota berjajar ke samping */
+.roster-modal-card .checkbox-member-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px;
+    width: 100%;
+}
+
+/* Setiap anggota */
+.roster-modal-card .member-checkbox {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 7px;
+    min-width: 0;
+    margin: 0;
+    padding: 10px 8px;
+    border: 1px solid #e3e3e8;
+    border-radius: 7px;
+    background: #fff;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.roster-modal-card .member-checkbox:has(input:checked) {
+    border-color: #ed174c;
+    background: #fff0f4;
+}
+
+.roster-modal-card .member-checkbox input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    margin: 0;
+    accent-color: #ed174c;
+}
+
+.roster-modal-card .member-checkbox span {
+    min-width: 0;
+    color: #454253;
+    font-size: 12px;
+    overflow-wrap: anywhere;
+}
+
+/* Tombol bawah */
+.roster-modal-card .modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    padding: 16px 24px 22px;
+}
+
+.roster-modal-card .cancel-btn {
+    background: #eee;
+    color: #454253;
+}
+
+.roster-modal-card .save-roster-btn {
+    background: #ed174c;
+    color: #fff;
+}
+
+/* Layar kecil */
+@media (max-width: 600px) {
+    .roster-modal-card .date-status-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .roster-modal-card .checkbox-member-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+
+/* TOMBOL X MODAL DUTY ROSTER */
+.roster-modal-card .modal-heading {
+    position: static !important;
+}
+
+.roster-modal-card .modal-close {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 32px !important;
+    height: 32px !important;
+    min-width: 32px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: none !important;
+    border-radius: 50% !important;
+    background: transparent !important;
+    color: #fff !important;
+    font-family: Arial, sans-serif !important;
+    font-size: 28px !important;
+    font-weight: 400 !important;
+    line-height: 1 !important;
+    cursor: pointer !important;
+    box-shadow: none !important;
+    transform: none !important;
+}
+
+.roster-modal-card .modal-close:hover {
+    background: rgba(255, 255, 255, 0.18) !important;
+    color: #fff !important;
+}
+
+.roster-modal-card .modal-close:focus-visible {
+    outline: 2px solid #fff !important;
+    outline-offset: 2px !important;
+}
+
+/* TOMBOL X ADD DAN EDIT DUTY ROSTER */
+
+.roster-modal-card .modal-heading {
+    position: relative !important;
+    overflow: visible !important;
+}
+
+.roster-modal-card .modal-close {
+    position: absolute !important;
+    top: 0 !important;
+    right: 0 !important;
+    z-index: 100 !important;
+
+    width: 24px !important;
+    height: 24px !important;
+    min-width: 24px !important;
+    box-sizing: border-box !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    padding: 0 !important;
+    margin: 0 !important;
+
+    background: #f1f1f1 !important;
+    color: #777 !important;
+    border: 1px solid #dedede !important;
+    border-radius: 4px !important;
+
+    font-family: Arial, sans-serif !important;
+    font-size: 17px !important;
+    font-weight: 400 !important;
+    line-height: 1 !important;
+}
+
+.roster-modal-card .modal-close {
+    top: -3px !important;
+    right: -3px !important;
+}
+/* PERBAIKAN POSISI X DAN LEBAR HEADER MODAL */
+.roster-modal-card {
+    position: relative !important;
+    overflow: visible !important;
+}
+
+.roster-modal-card .modal-heading {
+    position: static !important;
+}
+
+.roster-modal-card .modal-close {
+    position: absolute !important;
+    top: -10px !important;
+    right: -10px !important;
+
+    width: 26px !important;
+    height: 26px !important;
+    min-width: 26px !important;
+
+    padding: 0 !important;
+    margin: 0 !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    background: #f1f1f1 !important;
+    color: #777 !important;
+    border: 1px solid #dedede !important;
+    border-radius: 4px !important;
+
+    font-size: 18px !important;
+    line-height: 1 !important;
+    z-index: 9999 !important;
+}
+/* =====================================
+   NOTIFIKASI SUKSES
+===================================== */
+
+.roster-toast {
+    position: fixed;
+    top: 14px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 20000;
+
+    display: flex;
+    align-items: center;
+    gap: 11px;
+
+    width: max-content;
+    max-width: min(660px, calc(100vw - 28px));
+    box-sizing: border-box;
+
+    padding: 15px 18px;
+
+    border: 1px solid #77d982;
+    border-radius: 5px;
+
+    background: #b8f7b9;
+    color: #17251a;
+
+    box-shadow: 0 4px 14px rgba(0, 0, 0, .13);
+
+    font-size: 15px;
+    line-height: 1.45;
+
+    animation: rosterToastIn .22s ease-out;
+}
+
+.roster-toast strong {
+    font-weight: 700;
+}
+
+.roster-toast-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 25px;
+
+    width: 25px;
+    height: 25px;
+
+    border: 2px solid #4f9d5d;
+    border-radius: 50%;
+
+    color: #397c45;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.roster-toast-close {
+    flex: 0 0 auto;
+    margin-left: 5px;
+    padding: 0 2px;
+
+    border: 0;
+    background: transparent;
+    color: #315f38;
+
+    font-size: 22px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.roster-toast.is-hiding {
+    opacity: 0;
+    transform: translate(-50%, -8px);
+    transition: opacity .2s ease, transform .2s ease;
+}
+
+@keyframes rosterToastIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
+}
+
+/* =====================================
+   MODAL KONFIRMASI DELETE
+===================================== */
+
+.delete-confirm-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 15000;
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    padding: 18px;
+    box-sizing: border-box;
+}
+
+.delete-confirm-modal.show {
+    display: flex;
+}
+
+.delete-confirm-backdrop {
+    position: absolute;
+    inset: 0;
+
+    background: rgba(37, 33, 48, .62);
+    backdrop-filter: blur(2px);
+}
+
+.delete-confirm-card {
+    position: relative;
+    z-index: 1;
+
+    width: 100%;
+    max-width: 565px;
+
+    overflow: visible;
+
+    border-radius: 7px;
+    background: #fff;
+
+    box-shadow: 0 12px 35px rgba(0, 0, 0, .2);
+
+    animation: deleteConfirmIn .18s ease-out;
+}
+
+@keyframes deleteConfirmIn {
+    from {
+        opacity: 0;
+        transform: translateY(7px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* HEADER MERAH TUA */
+
+.delete-confirm-heading {
+    position: relative;
+
+    min-height: 70px;
+
+    display: flex;
+    align-items: center;
+
+    box-sizing: border-box;
+    padding: 20px 25px;
+
+    border-radius: 7px 7px 0 0;
+
+    background: #b90020;
+    color: #fff;
+}
+
+.delete-confirm-heading h2 {
+    margin: 0;
+    color: #fff;
+
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.delete-confirm-heading h2 span {
+    margin-right: 4px;
+}
+
+/* TOMBOL X DI LUAR POJOK MODAL */
+
+.delete-confirm-close {
+    position: absolute;
+    top: -13px;
+    right: -13px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 27px;
+    height: 27px;
+    padding: 0;
+
+    border: 1px solid #dedede;
+    border-radius: 4px;
+
+    background: #f1f1f1;
+    color: #777;
+
+    font-size: 19px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.delete-confirm-close:hover {
+    background: #fff;
+    color: #b90020;
+}
+
+/* ISI PESAN */
+
+.delete-confirm-body {
+    padding: 17px 38px 16px;
+
+    color: #242424;
+    font-size: 16px;
+    line-height: 1.55;
+}
+
+.delete-confirm-body p {
+    margin: 0;
+}
+
+.delete-confirm-body p + p {
+    margin-top: 1px;
+}
+
+/* TOMBOL CANCEL DAN LANJUTKAN */
+
+.delete-confirm-actions {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 14px;
+
+    padding: 24px 21px 27px;
+
+    border-top: 1px solid #e9e9e9;
+}
+
+.delete-cancel-btn,
+.delete-continue-btn {
+    min-height: 36px;
+    padding: 8px 17px;
+
+    border-radius: 6px;
+
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 500;
+
+    cursor: pointer;
+}
+
+.delete-cancel-btn {
+    border: 1px solid #a8a8b0;
+    background: #fff;
+    color: #737381;
+}
+
+.delete-cancel-btn:hover {
+    background: #f5f5f6;
+}
+
+.delete-continue-btn {
+    border: 1px solid #c90028;
+    background: #c90028;
+    color: #fff;
+
+    box-shadow: 0 2px 4px rgba(201, 0, 40, .2);
+}
+
+.delete-continue-btn:hover {
+    background: #a90022;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 600px) {
+    .roster-toast {
+        top: 10px;
+        padding: 12px;
+        font-size: 13px;
+    }
+
+    .delete-confirm-body {
+        padding: 18px 22px;
+        font-size: 14px;
+    }
+
+    .delete-confirm-actions {
+        gap: 8px;
+        padding: 18px 15px;
+    }
+}
+/* PERBAIKAN LAYOUT HALAMAN DUTY ROSTER */
+.main-content {
+    display: block !important;
+    min-width: 0;
+    box-sizing: border-box;
+}
+
+.main-content > .roster-panel,
+.main-content > .roster-table-panel {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.roster-table-panel {
+    margin-top: 24px;
+}
+/* FIX LAYOUT DUTY ROSTER */
+html body .app > main.main-content > .roster-panel,
+html body .app > main.main-content > .roster-table-panel {
+    display: block !important;
+    position: static !important;
+    float: none !important;
+    flex: 0 0 auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    box-sizing: border-box !important;
+}
+
+html body .app > main.main-content > .roster-table-panel {
+    margin-top: 24px !important;
+}
+
+html body .roster-panel .calendar-scroll {
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+html body .roster-panel .calendar-grid {
+    min-width: 735px;
+}
+
+/* MODAL KONFIRMASI DELETE */
+.delete-confirm-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    background: rgba(20, 15, 18, 0.55);
+}
+
+.delete-confirm-overlay.show {
+    display: flex;
+}
+
+.delete-confirm-modal {
+    position: relative;
+    width: 100%;
+    max-width: 440px;
+    overflow: visible;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.25);
+}
+
+.delete-confirm-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 22px 24px;
+    color: #fff;
+    background: #a90f32;
+    border-radius: 12px 12px 0 0;
+}
+
+.delete-confirm-header h3 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.delete-warning-icon {
+    display: grid;
+    place-items: center;
+    width: 34px;
+    height: 34px;
+    flex-shrink: 0;
+    font-size: 23px;
+    color: #fff;
+}
+
+.delete-confirm-close {
+    position: absolute;
+    top: -14px;
+    right: -14px;
+    z-index: 2;
+    width: 34px;
+    height: 34px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    background: #ed174c;
+    color: #fff;
+    font-size: 23px;
+    line-height: 1;
+    cursor: pointer;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, .2);
+}
+
+.delete-confirm-body {
+    padding: 26px 24px;
+    text-align: center;
+}
+
+.delete-confirm-body p {
+    margin: 0 0 10px;
+    color: #292929;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.6;
+}
+
+.delete-confirm-body span {
+    color: #777;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.delete-confirm-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    padding: 0 24px 24px;
+}
+
+.delete-cancel-btn,
+.delete-confirm-btn {
+    min-height: 42px;
+    padding: 0 18px;
+    border: none;
+    border-radius: 7px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.delete-cancel-btn {
+    background: #e9e9e9;
+    color: #444;
+}
+
+.delete-confirm-btn {
+    background: #ed174c;
+    color: #fff;
+}
+
+.delete-cancel-btn:hover {
+    background: #dcdcdc;
+}
+
+.delete-confirm-btn:hover {
+    background: #c9103d;
+}
+
+@media (max-width: 480px) {
+    .delete-confirm-modal {
+        max-width: 100%;
+    }
+
+    .delete-confirm-actions {
+        flex-wrap: wrap;
+    }
+}
+
+/* FIX POSISI MODAL DELETE AGAR DI TENGAH LAYAR */
+html body .delete-confirm-overlay {
+    position: fixed !important;
+    top: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    left: 0 !important;
+
+    width: 100vw !important;
+    height: 100vh !important;
+    max-width: none !important;
+    max-height: none !important;
+
+    display: none;
+    align-items: center !important;
+    justify-content: center !important;
+
+    padding: 24px !important;
+    margin: 0 !important;
+    background: rgba(20, 15, 18, 0.55) !important;
+    z-index: 99999 !important;
+}
+
+html body .delete-confirm-overlay.show {
+    display: flex !important;
+}
+
+html body .delete-confirm-modal {
+    position: relative !important;
+    top: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    left: auto !important;
+
+    flex: 0 1 440px !important;
+    width: 100% !important;
+    max-width: 440px !important;
+    margin: auto !important;
+    transform: none !important;
+}
+
+/* FIX OVERLAY DELETE: MENUTUP SELURUH LAYAR */
+html body .delete-confirm-overlay#deleteConfirmModal {
+    position: fixed !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 24px !important;
+    box-sizing: border-box !important;
+
+    display: none;
+    align-items: center !important;
+    justify-content: center !important;
+
+    background: rgba(20, 15, 18, 0.55) !important;
+    z-index: 99999 !important;
+}
+
+html body .delete-confirm-overlay#deleteConfirmModal.show {
+    display: flex !important;
+}
+
+html body #deleteConfirmModal .delete-confirm-backdrop {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: rgba(20, 15, 18, 0.55) !important;
+}
+
+html body #deleteConfirmModal .delete-confirm-card {
+    position: relative !important;
+    z-index: 1 !important;
+    flex: 0 1 440px !important;
+    width: 100% !important;
+    max-width: 440px !important;
+    margin: auto !important;
+}
+/* DELETE CONFIRMATION MODAL */
+.delete-confirm-overlay {
+    position: fixed !important;
+    inset: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    display: none;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 24px !important;
+    box-sizing: border-box !important;
+    background: rgba(30, 25, 35, 0.72) !important;
+    z-index: 99999 !important;
+}
+
+.delete-confirm-overlay.show {
+    display: flex !important;
+}
+
+.delete-confirm-backdrop {
+    position: absolute !important;
+    inset: 0 !important;
+}
+
+.delete-confirm-card {
+    position: relative !important;
+    z-index: 2 !important;
+    width: min(690px, calc(100vw - 48px)) !important;
+    margin: 0 !important;
+    background: #fff !important;
+    border-radius: 10px !important;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2) !important;
+}
+
+.delete-confirm-heading {
+    position: relative !important;
+    display: flex !important;
+    align-items: center !important;
+    min-height: 110px !important;
+    padding: 24px 38px !important;
+    box-sizing: border-box !important;
+    background: #c4002f !important;
+    color: #fff !important;
+    border-radius: 10px 10px 0 0 !important;
+}
+
+.delete-confirm-heading h2 {
+    margin: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 16px !important;
+    color: #fff !important;
+    font-size: 25px !important;
+    font-weight: 700 !important;
+}
+
+.delete-confirm-close {
+    position: absolute !important;
+    top: -20px !important;
+    right: -20px !important;
+    width: 42px !important;
+    height: 42px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border: 2px solid #fff !important;
+    border-radius: 50% !important;
+    background: #f51b4b !important;
+    color: #fff !important;
+    font-size: 30px !important;
+    line-height: 1 !important;
+    cursor: pointer !important;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2) !important;
+}
+
+.delete-confirm-body {
+    padding: 28px 38px 32px !important;
+    text-align: center !important;
+    color: #292929 !important;
+    font-size: 19px !important;
+    font-weight: 600 !important;
+    line-height: 1.6 !important;
+}
+
+.delete-confirm-body p {
+    margin: 12px 0 20px !important;
+}
+
+.delete-confirm-body p:last-child {
+    margin-bottom: 0 !important;
+}
+
+.delete-confirm-actions {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    gap: 16px !important;
+    padding: 20px 38px 28px !important;
+    border-top: 1px solid #e8e8e8 !important;
+}
+
+.delete-cancel-btn,
+.delete-continue-btn {
+    min-height: 58px !important;
+    padding: 0 28px !important;
+    border: 0 !important;
+    border-radius: 10px !important;
+    font-size: 18px !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+}
+
+.delete-cancel-btn {
+    background: #e9e9e9 !important;
+    color: #444 !important;
+}
+
+.delete-continue-btn {
+    background: #c4002f !important;
+    color: #fff !important;
+    box-shadow: 0 3px 6px rgba(196, 0, 47, 0.2) !important;
+}
+
+@media (max-width: 600px) {
+    .delete-confirm-card {
+        width: calc(100vw - 40px) !important;
+    }
+
+    .delete-confirm-heading {
+        min-height: 80px !important;
+        padding: 20px !important;
+    }
+
+    .delete-confirm-heading h2 {
+        font-size: 20px !important;
+    }
+
+    .delete-confirm-close {
+        top: -14px !important;
+        right: -14px !important;
+    }
+
+    .delete-confirm-body {
+        padding: 20px !important;
+        font-size: 16px !important;
+    }
+
+    .delete-confirm-actions {
+        padding: 16px 20px 20px !important;
+        gap: 10px !important;
+    }
+
+    .delete-cancel-btn,
+    .delete-continue-btn {
+        min-height: 46px !important;
+        padding: 0 16px !important;
+        font-size: 15px !important;
+    }
+}
+/* PERBAIKAN UKURAN MODAL HAPUS */
+#deleteConfirmModal.delete-confirm-overlay {
+    position: fixed !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    padding: 24px !important;
+    display: none;
+    align-items: center !important;
+    justify-content: center !important;
+    background: rgba(35, 30, 38, 0.72) !important;
+    z-index: 999999 !important;
+    box-sizing: border-box !important;
+}
+
+#deleteConfirmModal.delete-confirm-overlay.show {
+    display: flex !important;
+}
+
+#deleteConfirmModal .delete-confirm-card {
+    width: 690px !important;
+    max-width: calc(100vw - 80px) !important;
+    min-width: 0 !important;
+    flex: 0 0 auto !important;
+    margin: 0 !important;
+    border-radius: 10px !important;
+    overflow: visible !important;
+    background: #fff !important;
+}
+
+#deleteConfirmModal .delete-confirm-heading {
+    min-height: 110px !important;
+    padding: 28px 40px !important;
+    background: #c4002f !important;
+    border-radius: 10px 10px 0 0 !important;
+}
+
+#deleteConfirmModal .delete-confirm-heading h2 {
+    font-size: 26px !important;
+    gap: 16px !important;
+}
+
+#deleteConfirmModal .delete-confirm-close {
+    top: -20px !important;
+    right: -20px !important;
+    width: 42px !important;
+    height: 42px !important;
+    font-size: 30px !important;
+}
+
+#deleteConfirmModal .delete-confirm-body {
+    padding: 30px 42px 34px !important;
+    font-size: 23px !important;
+    line-height: 1.65 !important;
+    font-weight: 600 !important;
+    text-align: center !important;
+}
+
+#deleteConfirmModal .delete-confirm-body p {
+    margin: 10px 0 20px !important;
+}
+
+#deleteConfirmModal .delete-confirm-body p:last-child {
+    margin-bottom: 0 !important;
+}
+
+#deleteConfirmModal .delete-confirm-actions {
+    padding: 24px 38px 34px !important;
+    gap: 18px !important;
+}
+
+#deleteConfirmModal .delete-cancel-btn,
+#deleteConfirmModal .delete-continue-btn {
+    min-height: 60px !important;
+    padding: 0 28px !important;
+    font-size: 20px !important;
+    border-radius: 10px !important;
+}
+
+@media (max-width: 600px) {
+    #deleteConfirmModal .delete-confirm-card {
+        width: calc(100vw - 48px) !important;
+        max-width: none !important;
+    }
+
+    #deleteConfirmModal .delete-confirm-heading {
+        min-height: 82px !important;
+        padding: 20px 24px !important;
+    }
+
+    #deleteConfirmModal .delete-confirm-heading h2 {
+        font-size: 20px !important;
+    }
+
+    #deleteConfirmModal .delete-confirm-body {
+        padding: 22px 20px !important;
+        font-size: 16px !important;
+    }
+
+    #deleteConfirmModal .delete-confirm-actions {
+        padding: 16px 20px 22px !important;
+        gap: 10px !important;
+    }
+
+    #deleteConfirmModal .delete-cancel-btn,
+    #deleteConfirmModal .delete-continue-btn {
+        min-height: 46px !important;
+        padding: 0 14px !important;
+        font-size: 15px !important;
+    }
+}
+
+/* ========================================
+   MODAL KONFIRMASI HAPUS - PERBAIKAN DESAIN
+======================================== */
+
+#deleteConfirmModal.delete-confirm-overlay {
+    position: fixed !important;
+    inset: 0 !important;
+    z-index: 99999 !important;
+    display: none;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 24px !important;
+    box-sizing: border-box !important;
+    background: rgba(20, 20, 30, 0.48) !important;
+}
+
+#deleteConfirmModal.delete-confirm-overlay.show {
+    display: flex !important;
+}
+
+#deleteConfirmModal .delete-confirm-backdrop {
+    position: absolute !important;
+    inset: 0 !important;
+    background: transparent !important;
+}
+
+#deleteConfirmModal .delete-confirm-card {
+    position: relative !important;
+    width: 460px !important;
+    max-width: calc(100vw - 48px) !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+    box-sizing: border-box !important;
+    background: #ffffff !important;
+    border-radius: 12px !important;
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.22) !important;
+    animation: deleteModalAppear 0.18s ease-out;
+}
+
+#deleteConfirmModal .delete-confirm-heading {
+    position: relative !important;
+    display: flex !important;
+    align-items: center !important;
+    min-height: 76px !important;
+    padding: 20px 26px !important;
+    box-sizing: border-box !important;
+    background: #a91620 !important;
+    border-radius: 12px 12px 0 0 !important;
+}
+
+#deleteConfirmModal .delete-confirm-heading h2 {
+    margin: 0 !important;
+    color: #ffffff !important;
+    font-size: 21px !important;
+    font-weight: 700 !important;
+    line-height: 1.4 !important;
+}
+
+#deleteConfirmModal .delete-confirm-heading h2 span {
+    margin-right: 9px !important;
+}
+
+#deleteConfirmModal .delete-confirm-close {
+    position: absolute !important;
+    top: -14px !important;
+    right: -14px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 38px !important;
+    height: 38px !important;
+    padding: 0 !important;
+    border: 2px solid #ffffff !important;
+    border-radius: 7px !important;
+    background: #ffffff !important;
+    color: #3e3e3e !important;
+    font-size: 26px !important;
+    font-weight: 400 !important;
+    line-height: 1 !important;
+    cursor: pointer !important;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.18) !important;
+    z-index: 5 !important;
+}
+
+#deleteConfirmModal .delete-confirm-body {
+    padding: 24px 26px 20px !important;
+    background: #ffffff !important;
+    color: #444444 !important;
+    font-size: 14px !important;
+    line-height: 1.7 !important;
+}
+
+#deleteConfirmModal .delete-confirm-body p {
+    margin: 0 0 10px !important;
+}
+
+#deleteConfirmModal .delete-confirm-body p:last-child {
+    margin-bottom: 0 !important;
+    color: #777777 !important;
+    font-size: 13px !important;
+}
+
+#deleteConfirmModal .delete-confirm-actions {
+    display: flex !important;
+    justify-content: flex-end !important;
+    align-items: center !important;
+    gap: 10px !important;
+    padding: 0 26px 24px !important;
+    background: #ffffff !important;
+    border-radius: 0 0 12px 12px !important;
+}
+
+#deleteConfirmModal .delete-cancel-btn,
+#deleteConfirmModal .delete-continue-btn {
+    min-height: 40px !important;
+    padding: 10px 18px !important;
+    border-radius: 6px !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+    transition: background 0.2s ease !important;
+}
+
+#deleteConfirmModal .delete-cancel-btn {
+    border: 1px solid #d5d5d5 !important;
+    background: #eeeeee !important;
+    color: #444444 !important;
+}
+
+#deleteConfirmModal .delete-cancel-btn:hover {
+    background: #dddddd !important;
+}
+
+#deleteConfirmModal .delete-continue-btn {
+    border: 1px solid #a91620 !important;
+    background: #a91620 !important;
+    color: #ffffff !important;
+}
+
+#deleteConfirmModal .delete-continue-btn:hover {
+    background: #850f18 !important;
+}
+
+body.delete-modal-open {
+    overflow: hidden !important;
+}
+
+@keyframes deleteModalAppear {
+    from {
+        opacity: 0;
+        transform: translateY(8px) scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@media (max-width: 520px) {
+    #deleteConfirmModal.delete-confirm-overlay {
+        padding: 20px !important;
+    }
+
+    #deleteConfirmModal .delete-confirm-card {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    #deleteConfirmModal .delete-confirm-heading {
+        padding: 18px 20px !important;
+    }
+
+    #deleteConfirmModal .delete-confirm-body {
+        padding: 20px !important;
+    }
+
+    #deleteConfirmModal .delete-confirm-actions {
+        padding: 0 20px 20px !important;
+        flex-wrap: wrap !important;
+    }
+}

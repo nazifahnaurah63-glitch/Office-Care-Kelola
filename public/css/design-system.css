@@ -1,0 +1,175 @@
+:root {
+    /* Warna */
+    --kelola-primary: #ed174c;
+    --kelola-primary-hover: #d81343;
+
+    --kelola-success: #16a34a;
+    --kelola-success-bg: #dcfce7;
+
+    --kelola-danger: #dc2626;
+    --kelola-danger-bg: #fee2e2;
+
+    --kelola-warning: #d97706;
+    --kelola-warning-bg: #fef3c7;
+
+    --kelola-text: #292929;
+    --kelola-text-secondary: #777777;
+
+    --kelola-border: #e5e7eb;
+    --kelola-background: #f8f9fb;
+    --kelola-surface: #ffffff;
+
+    /* Font */
+    --kelola-font: 'Nunito', sans-serif;
+
+    /* Ukuran dan bentuk */
+    --kelola-radius-sm: 6px;
+    --kelola-radius-md: 10px;
+    --kelola-radius-lg: 14px;
+
+    /* Bayangan */
+    --kelola-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+/* Tombol dasar */
+.kelola-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 18px;
+    border: 1px solid transparent;
+    border-radius: var(--kelola-radius-sm);
+    font-family: var(--kelola-font);
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.2s ease;;
+}
+
+.kelola-btn-primary {
+    background: var(--kelola-primary);
+    color: #ffffff;
+}
+
+.kelola-btn-primary:hover {
+    background: var(--kelola-primary-hover);
+}
+
+.kelola-btn-secondary {
+    background: #ffffff;
+    color: var(--kelola-text);
+    border-color: var(--kelola-border);
+}
+
+.kelola-btn-danger {
+    background: var(--kelola-danger);
+    color: #ffffff;
+}
+
+/* Input dan textarea */
+.kelola-input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 11px 13px;
+    border: 1px solid var(--kelola-border);
+    border-radius: var(--kelola-radius-sm);
+    background: #ffffff;
+    color: var(--kelola-text);
+    font-family: var(--kelola-font);
+    font-size: 14px;
+    outline: none;
+}
+
+.kelola-input:focus {
+    border-color: var(--kelola-primary);
+    box-shadow: 0 0 0 3px rgba(237, 23, 76, 0.08);
+}
+
+/* Label form */
+.kelola-label {
+    display: block;
+    margin-bottom: 7px;
+    color: var(--kelola-text);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* Badge status */
+.kelola-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.kelola-badge-success {
+    background: var(--kelola-success-bg);
+    color: #166534;
+}
+
+.kelola-badge-warning {
+    background: var(--kelola-warning-bg);
+    color: #92400e;
+}
+
+.kelola-badge-danger {
+    background: var(--kelola-danger-bg);
+    color: #991b1b;
+}
+
+/* Judul halaman */
+.kelola-page-title {
+    margin: 0;
+    color: var(--kelola-text);
+    font-family: var(--kelola-font);
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.kelola-page-description {
+    margin: 6px 0 0;
+    color: var(--kelola-text-secondary);
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* Kartu */
+.kelola-card {
+    background: var(--kelola-surface);
+    border: 1px solid var(--kelola-border);
+    border-radius: var(--kelola-radius-md);
+    box-shadow: var(--kelola-shadow);
+}
+
+/* Notifikasi */
+.kelola-alert {
+    padding: 12px 16px;
+    border: 1px solid transparent;
+    border-radius: var(--kelola-radius-sm);
+    font-size: 14px;
+}
+
+.kelola-alert-success {
+    background: var(--kelola-success-bg);
+    border-color: #86efac;
+    color: #166534;
+}
+
+.kelola-alert-danger {
+    background: var(--kelola-danger-bg);
+    border-color: #fecaca;
+    color: #991b1b;
+}
+
+/* Penyesuaian aksesibilitas */
+.kelola-btn:focus-visible,
+.kelola-input:focus-visible {
+    outline: 2px solid var(--kelola-primary);
+    outline-offset: 2px;
+}
