@@ -1,11 +1,13 @@
 .topbar {
     display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
     justify-content: space-between;
     align-items: center;
     background: #ffffff;
     padding: 12px 30px;
     border-radius: 16px;
-    box-shadow: 0 5px 9px rgba(0, 0, 0, .12);
+    box-shadow: 0 5px 9px rgba(0, 0, 0, 0.12);
     margin-bottom: 5px;
     width: 100%;
     box-sizing: border-box;
@@ -15,6 +17,7 @@
     display: flex;
     align-items: center;
     gap: 12px;
+    flex-shrink: 0;
 }
 
 .top-logo img {
@@ -38,12 +41,42 @@
     letter-spacing: 2px;
 }
 
+.search-box {
+    position: relative;
+    width: 290px;
+    height: 56px;
+    margin-left: 640px;
+}
+
+.search-box svg {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 22px;
+    height: 22px;
+    color: #8b8e9b;
+    pointer-events: none;
+}
+
+.search-box input {
+    width: 100%;
+    height: 100%;
+    padding: 0 15px 0 48px;
+    border: 1px solid #ccc;
+    border-radius: 9px;
+    font-size: 15px;
+    box-sizing: border-box;
+}
 .top-actions {
     display: flex;
     align-items: center;
     gap: 27px;
+    margin-left: auto;
+    width: auto;
+    flex-wrap: nowrap;
+    flex-shrink: 0;
 }
-
 .top-actions input {
     width: 290px;
     height: 56px;

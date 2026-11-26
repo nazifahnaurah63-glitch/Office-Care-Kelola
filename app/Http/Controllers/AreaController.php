@@ -55,4 +55,54 @@ class AreaController extends Controller
 
         return view('areas.show', compact('area', 'tasks'));
     }
+
+    public function update(Request $request, Area $area)
+    {
+        $validated = $request->validate([
+            'name' => [
+                'required',
+                'string',
+                'max:255',
+                Rule::unique('areas', 'name')->ignore($area->id),
+            ],
+            'description' => 'nullable|string|max:1000',
+            'photo' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
+        ]);
+
+        if ($request->hasFile('photo')) {
+            if ($area->photo) {
+                Storage::disk('public')->delete($area->photo);
+            }
+
+            $validated['photo'] = $request->file('photo')
+                ->store('areas', 'public');
+        }
+
+        $area->update($validated);
+
+        return redirect()
+            ->route('areas.index')
+            ->with('success', 'Data area berhasil diperbarui.');
+    }
+
+    public function destroy(Area $area)
+    {
+        // Cegah penghapusan area yang masih memiliki tugas kebersihan.
+        if (CleaningTask::where('area', $area->name)->exists()) {
+            return redirect()
+                ->route('areas.index')
+                ->with('error', 'Area tidak dapat dihapus karena masih memiliki tugas kebersihan.');
+        }
+
+        if ($area->photo) {
+            Storage::disk('public')->delete($area->photo);
+        }
+
+        $area->delete();
+
+        return redirect()
+            ->route('areas.index')
+            ->with('success', 'Area berhasil dihapus.');
+    }
+
 }

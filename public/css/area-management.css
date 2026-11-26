@@ -1,0 +1,233 @@
+/* =================================================================
+   CSS KHUSUS HALAMAN AREA MANAGEMENT
+================================================================= */
+
+.areas-content {
+    padding: 10px 17px 24px;
+    font-family: var(--kelola-font);
+    color: var(--kelola-text);
+}
+
+/* Toolbar & Pencarian */
+.area-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 15px 22px;
+    margin-bottom: 32px;
+}
+
+.area-search {
+    width: 260px;
+    max-width: 100%;
+    border-radius: var(--kelola-radius-md);
+}
+
+/* Grid & Kartu Area */
+.area-cards {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 28px 30px;
+}
+
+.area-card {
+    display: grid;
+    grid-template-columns: 43% minmax(0, 1fr);
+    column-gap: 18px;
+    row-gap: 14px;
+    padding: 12px 14px;
+    border-color: #f2e5e9;
+    min-width: 0;
+}
+
+.area-card-image {
+    width: 100%;
+    height: 147px;
+    object-fit: cover;
+    border-radius: var(--kelola-radius-sm);
+}
+
+.area-card-info {
+    min-width: 0;
+    padding-top: 18px;
+}
+
+.area-card-info h3 {
+    margin: 0 0 8px;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--kelola-text);
+}
+
+.area-card-info p {
+    margin: 0 0 20px;
+    color: var(--kelola-text-secondary);
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+.area-card-count {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--kelola-text);
+}
+
+.area-card-actions {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.area-icon i {
+    gap: 2;
+}
+
+.area-action {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 13px;
+    border: 0;
+    border-radius: 22px;
+    background: #f9e2e9;
+    color: var(--kelola-primary);
+    font-family: var(--kelola-font);
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.2s ease;
+}
+
+.area-action:hover:not(:disabled) {
+    background: #f4ceda;
+}
+
+/* Sembunyikan modal secara default */
+.area-modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(25, 20, 22, 0.55);
+    overflow-y: auto;
+}
+
+/* Munculkan hanya saat kelas is-open aktif */
+.area-modal-overlay.is-open {
+    display: flex;
+}
+
+/* Kolom Upload Foto & Detail Khusus Modal */
+.add-area-body {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    gap: 28px;
+    align-items: stretch;
+}
+
+.add-area-upload-column {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.area-upload-box {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 100%;
+    padding: 20px 14px;
+    border: 1.5px dashed #e9aab6;
+    border-radius: var(--kelola-radius-sm);
+    background: #fff8fa;
+    color: var(--kelola-text-secondary);
+    font-size: 12px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.area-upload-box svg {
+    color: var(--kelola-primary);
+}
+
+.area-upload-box strong {
+    color: var(--kelola-primary);
+    font-size: 13px;
+}
+
+.detail-area-summary {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 24px;
+}
+
+.detail-area-summary img {
+    width: 130px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: var(--kelola-radius-sm);
+}
+
+.detail-task-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+
+.detail-task-table th {
+    padding: 12px 10px;
+    background: #fff0f4;
+    color: var(--kelola-primary);
+    text-align: left;
+}
+
+.detail-task-table td {
+    padding: 12px 10px;
+    border-bottom: 1px solid var(--kelola-border);
+}
+
+.edit-area-photo-preview {
+    width: 100%;
+    max-height: 110px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 8px;
+}
+
+.area-photo-note {
+    display: block;
+    margin-top: 8px;
+    color: #777;
+    font-size: 12px;
+}
+
+.required-star {
+    color: var(--kelola-danger);
+}
+
+/* Responsif */
+@media (max-width: 1200px) {
+    .area-cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 760px) {
+    .area-cards {
+        grid-template-columns: 1fr;
+    }
+    .add-area-body {
+        grid-template-columns: 1fr;
+    }
+}

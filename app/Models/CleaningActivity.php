@@ -8,18 +8,22 @@ class CleaningActivity extends Model
 {
     protected $fillable = [
         'cleaning_task_id',
-        'employee_name',
         'activity_name',
-        'area',
-        'description',
-        'status',
         'activity_date',
+        'description',
+        'tanggal',
+        'jenis_aktivitas',
+        'area',
+        'employee_name',
+        'status',
+        'foto',
     ];
 
     protected function casts(): array
     {
         return [
             'activity_date' => 'datetime',
+            'tanggal' => 'date',
         ];
     }
 

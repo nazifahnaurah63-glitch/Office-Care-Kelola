@@ -2,20 +2,28 @@
     /* Warna */
     --kelola-primary: #ed174c;
     --kelola-primary-hover: #d81343;
+    --kelola-red-brand: #c60024;
+    --kelola-red-brand-hover: #a9001e;
 
     --kelola-success: #16a34a;
+    --kelola-success-text: #047857;
     --kelola-success-bg: #dcfce7;
 
     --kelola-danger: #dc2626;
+    --kelola-danger-text: #c90024;
     --kelola-danger-bg: #fee2e2;
 
     --kelola-warning: #d97706;
+    --kelola-warning-text: #92400e;
     --kelola-warning-bg: #fef3c7;
 
     --kelola-text: #292929;
+    --kelola-text-dark: #454553;
+    --kelola-text-body: #484858;
     --kelola-text-secondary: #777777;
 
     --kelola-border: #e5e7eb;
+    --kelola-border-input: #dedee3;
     --kelola-background: #f8f9fb;
     --kelola-surface: #ffffff;
 
@@ -28,11 +36,56 @@
     --kelola-radius-lg: 14px;
 
     /* Bayangan */
-    --kelola-shadow:
-        0 2px 8px rgba(0, 0, 0, 0.04);
+    --kelola-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    --kelola-shadow-card: 0 3px 20px rgba(30, 40, 60, 0.08);
+    --kelola-shadow-modal: 0 8px 25px rgba(0, 0, 0, 0.18);
 }
 
-/* Tombol dasar */
+/* =================================================================
+   PAGE HEADING
+================================================================= */
+.kelola-page-heading {
+    display: flex;
+    align-items: center;
+    gap: 19px;
+    margin: 30px 17px;
+}
+
+.kelola-heading-icon {
+    width: 70px;
+    height: 68px;
+    display: grid;
+    place-items: center;
+    background: #f5d7e2;
+    color: #ed174c;
+    border-radius: 5px;
+    font-size: 35px;
+    flex-shrink: 0;
+}
+
+.kelola-heading-icon svg {
+    width: 32px;
+    height: 32px;
+    stroke: #ed174c;
+}
+
+.kelola-heading-text h1 {
+    font-size: 34px;
+    margin: 0 0 5px 0;
+    color: var(--kelola-text, #292929);
+    font-weight: 700;
+}
+
+.kelola-heading-text p {
+    color: #858585;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0;
+}
+
+/* =================================================================
+   1. TOMBOL (BUTTONS)
+================================================================= */
 .kelola-btn {
     display: inline-flex;
     align-items: center;
@@ -46,22 +99,25 @@
     font-weight: 600;
     text-decoration: none;
     cursor: pointer;
-    transition: background 0.2s ease;;
+    transition: background 0.2s ease, opacity 0.2s ease;
 }
 
 .kelola-btn-primary {
-    background: var(--kelola-primary);
+    background: var(--kelola-red-brand);
     color: #ffffff;
 }
 
 .kelola-btn-primary:hover {
-    background: var(--kelola-primary-hover);
+    background: var(--kelola-red-brand-hover);
 }
 
-.kelola-btn-secondary {
-    background: #ffffff;
-    color: var(--kelola-text);
-    border-color: var(--kelola-border);
+.kelola-btn-cancel {
+    background: #777b87;
+    color: #ffffff;
+}
+
+.kelola-btn-cancel:hover {
+    background: #636772;
 }
 
 .kelola-btn-danger {
@@ -69,90 +125,469 @@
     color: #ffffff;
 }
 
-/* Input dan textarea */
-.kelola-input {
+.kelola-btn-danger:hover {
+    background: #b91c1c;
+}
+
+.kelola-btn[hidden] {
+    display: none !important;
+}
+
+/* Tombol Aksi di Dalam Tabel */
+.kelola-table-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.kelola-action-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    color: var(--kelola-red-brand);
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
+    padding: 4px;
+}
+
+.kelola-action-icon:hover {
+    color: #870019;
+}
+
+/* =================================================================
+   2. FORMULIR, INPUT, LABEL & BADGE
+================================================================= */
+.kelola-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 0;
+    margin-bottom: 16px;
+}
+
+.kelola-label {
+    display: block;
+    color: var(--kelola-text);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.kelola-required {
+    color: #bd001d;
+}
+
+.kelola-input,
+.kelola-select,
+.kelola-textarea {
     width: 100%;
     box-sizing: border-box;
-    padding: 11px 13px;
-    border: 1px solid var(--kelola-border);
+    padding: 10px 13px;
+    border: 1px solid var(--kelola-border-input);
     border-radius: var(--kelola-radius-sm);
     background: #ffffff;
     color: var(--kelola-text);
     font-family: var(--kelola-font);
     font-size: 14px;
     outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-.kelola-input:focus {
+.kelola-textarea {
+    min-height: 75px;
+    line-height: 1.4;
+    resize: vertical;
+}
+
+.kelola-input:focus,
+.kelola-select:focus,
+.kelola-textarea:focus {
     border-color: var(--kelola-primary);
     box-shadow: 0 0 0 3px rgba(237, 23, 76, 0.08);
 }
 
-/* Label form */
-.kelola-label {
-    display: block;
-    margin-bottom: 7px;
-    color: var(--kelola-text);
-    font-size: 14px;
-    font-weight: 600;
+.kelola-input::placeholder,
+.kelola-textarea::placeholder {
+    color: #aaaaaa;
 }
 
-/* Badge status */
+/* Badge Status */
 .kelola-badge {
     display: inline-flex;
     align-items: center;
-    padding: 5px 10px;
-    border-radius: 20px;
-    font-size: 12px;
+    padding: 5px 14px;
+    border-radius: var(--kelola-radius-sm);
+    font-size: 14px;
     font-weight: 600;
     white-space: nowrap;
 }
 
 .kelola-badge-success {
     background: var(--kelola-success-bg);
-    color: #166534;
+    color: var(--kelola-success-text);
 }
 
 .kelola-badge-warning {
     background: var(--kelola-warning-bg);
-    color: #92400e;
+    color: var(--kelola-warning-text);
 }
 
 .kelola-badge-danger {
     background: var(--kelola-danger-bg);
-    color: #991b1b;
+    color: var(--kelola-danger-text);
 }
 
-/* Judul halaman */
+/* =================================================================
+   3. KARTU & TABEL DATA (TABLE SYSTEM)
+================================================================= */
 .kelola-page-title {
     margin: 0;
     color: var(--kelola-text);
     font-family: var(--kelola-font);
-    font-size: 28px;
+    font-size: 26px;
     font-weight: 700;
 }
 
 .kelola-page-description {
-    margin: 6px 0 0;
+    margin: 4px 0 0;
     color: var(--kelola-text-secondary);
     font-size: 14px;
-    line-height: 1.6;
+    line-height: 1.5;
 }
 
-/* Kartu */
-.kelola-card {
+.kelola-card,
+.kelola-table-card {
     background: var(--kelola-surface);
     border: 1px solid var(--kelola-border);
     border-radius: var(--kelola-radius-md);
-    box-shadow: var(--kelola-shadow);
+    box-shadow: var(--kelola-shadow-card);
+    margin-bottom: 22px;
+    overflow: hidden;
 }
 
-/* Notifikasi */
+/* Header Kartu Tabel (Judul di Kiri, Tombol & Dropdown di Kanan) */
+.kelola-table-header {
+    min-height: 82px;
+    padding: 18px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--kelola-border);
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.kelola-table-header h2 {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--kelola-text);
+}
+
+.kelola-table-controls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.kelola-page-length {
+    height: 40px;
+    min-width: 72px;
+    padding: 0 12px;
+    font-size: 14px;
+    border: 1px solid #d5d5dc;
+    border-radius: var(--kelola-radius-sm);
+    background: #ffffff;
+    color: var(--kelola-text-dark);
+    cursor: pointer;
+}
+
+/* Struktur Tabel Utama */
+.kelola-table-wrap {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.kelola-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.kelola-table th,
+.kelola-table td {
+    padding: 15px 24px;
+    border-bottom: 1px solid var(--kelola-border);
+    font-size: 16px;
+}
+
+.kelola-table th {
+    color: var(--kelola-text-dark);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 16px;
+    letter-spacing: 0.3px;
+    background: #ffffff;
+}
+
+.kelola-table td {
+    color: var(--kelola-text-body);
+}
+
+.kelola-table tbody tr:hover {
+    background-color: #fafafa;
+}
+
+.kelola-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.kelola-table input[type="checkbox"] {
+    width: 17px;
+    height: 17px;
+    accent-color: var(--kelola-red-brand);
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+/* Baris Pencarian di Header Tabel */
+.kelola-search-row th {
+    padding: 10px 24px !important;
+    background: #fcfcfd;
+}
+
+.kelola-search-row input {
+    width: 100%;
+    max-width: 160px;
+    height: 32px;
+    padding: 5px 10px;
+    border: 1px solid #d5d5dc;
+    border-radius: var(--kelola-radius-sm);
+    font-size: 13px;
+    outline: none;
+}
+
+.kelola-search-row input:focus {
+    border-color: var(--kelola-red-brand);
+}
+
+/* Footer Tabel & Pagination */
+.kelola-table-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 24px;
+    border-top: 1px solid var(--kelola-border);
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.kelola-table-info {
+    color: #8c8c96;
+    font-size: 14px;
+}
+
+.kelola-pagination {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.kelola-pagination button {
+    width: 34px;
+    height: 34px;
+    border: none;
+    border-radius: 50%;
+    background: #f0f0f2;
+    color: var(--kelola-text-dark);
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.kelola-pagination button:hover:not(:disabled) {
+    background: #e2e2e6;
+}
+
+.kelola-pagination button.active {
+    background: var(--kelola-red-brand);
+    color: #ffffff;
+}
+
+.kelola-pagination button:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+
+/* =================================================================
+   4. MODAL POP-UP
+================================================================= */
+.kelola-modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: rgba(20, 16, 35, 0.55);
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+}
+
+.kelola-modal-overlay.show {
+    display: flex;
+}
+
+.kelola-modal {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: var(--kelola-shadow-modal);
+    overflow: visible;
+    animation: modalFadeIn 0.2s ease;
+}
+
+.kelola-modal-sm {
+    max-width: 450px;
+}
+
+@keyframes modalFadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.kelola-modal-header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 24px;
+    background: var(--kelola-red-brand);
+    color: #ffffff;
+    border-radius: 8px 8px 0 0;
+}
+
+.kelola-modal-header h2,
+.kelola-modal-header span {
+    margin: 0;
+    font-size: 19px;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.kelola-modal-close {
+    position: absolute;
+    top: -12px;
+    right: -12px;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f4f4f6;
+    color: #777777;
+    border: none;
+    border-radius: 6px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    transition: background 0.2s ease;
+}
+
+.kelola-modal-close:hover {
+    background: #e2e2e6;
+    color: #333333;
+}
+
+/* Body & Grid Form di Dalam Modal */
+.kelola-modal-body {
+    padding: 24px;
+    max-height: 75vh;
+    overflow-y: auto;
+}
+
+.kelola-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 24px;
+    row-gap: 16px;
+}
+
+.kelola-modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    padding: 16px 24px;
+    border-top: 1px solid var(--kelola-border);
+    background: #fafafa;
+    border-radius: 0 0 8px 8px;
+}
+
+/* =================================================================
+   5. NOTIFIKASI (FLASH TOAST & STATIC ALERT)
+================================================================= */
+/* Notifikasi Melayang di Atas Tengah (Flash Notification) */
+.kelola-flash {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10000;
+    width: max-content;
+    max-width: 90%;
+    min-width: 340px;
+    padding: 16px 22px;
+    border-radius: var(--kelola-radius-sm);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    animation: flashDrop 0.3s ease;
+}
+
+.kelola-flash-success {
+    background: #b9f6b9;
+    color: #075b16;
+    border: 1px solid #168b28;
+}
+
+.kelola-flash-error {
+    background: #ffe0e0;
+    color: #bd001d;
+    border: 1px solid #bd001d;
+}
+
+.kelola-flash-icon {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid currentColor;
+    border-radius: 50%;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+@keyframes flashDrop {
+    from { opacity: 0; transform: translate(-50%, -15px); }
+    to { opacity: 1; transform: translate(-50%, 0); }
+}
+
+/* Notifikasi Statis di Dalam Halaman */
 .kelola-alert {
     padding: 12px 16px;
     border: 1px solid transparent;
     border-radius: var(--kelola-radius-sm);
     font-size: 14px;
+    margin-bottom: 16px;
 }
 
 .kelola-alert-success {
@@ -167,9 +602,28 @@
     color: #991b1b;
 }
 
-/* Penyesuaian aksesibilitas */
+/* =================================================================
+   6. AKSESIBILITAS & RESPONSIF MOBILE
+================================================================= */
 .kelola-btn:focus-visible,
 .kelola-input:focus-visible {
     outline: 2px solid var(--kelola-primary);
     outline-offset: 2px;
+}
+
+@media (max-width: 768px) {
+    .kelola-form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .kelola-table th,
+    .kelola-table td,
+    .kelola-search-row th {
+        padding: 12px 14px !important;
+    }
+
+    .kelola-flash {
+        min-width: unset;
+        width: 90%;
+    }
 }

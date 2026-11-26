@@ -31,35 +31,6 @@ body {
     width: calc(100% - 88px);
 }
 
-.page-heading {
-    display: flex;
-    align-items: center;
-    gap: 19px;
-    margin: 30px 17px;
-}
-
-.heading-icon {
-    width: 70px;
-    height: 68px;
-    display: grid;
-    place-items: center;
-    background: #f5d7e2;
-    color: #ed174c;
-    border-radius: 5px;
-    font-size: 35px;
-}
-
-.page-heading h1 {
-    font-size: 34px;
-    margin-bottom: 5px;
-}
-
-.page-heading p {
-    color: #858585;
-    font-size: 16px;
-    font-weight: 600;
-}
-
 .stats {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -88,14 +59,14 @@ body {
 
 .stat-card strong {
     display: block;
-    font-size: 24px;
-    font-weight: 500;
-    margin-bottom: 6px;
+    font-size: 26px;
+    font-weight: 600;
+    margin-bottom: 3px;
 }
 
 .stat-card p {
     color: #858585;
-    font-size: 14px;
+    font-size: 16px;
     white-space: nowrap;
 }
 
@@ -149,7 +120,7 @@ body {
     font-weight: 600;
 }
 
-.panel-heading > span {
+.panel-heading > svg {
     color: #ed174c;
     font-size: 27px;
 }
@@ -314,9 +285,12 @@ th, td {
     border-radius: 5px;
 }
 
-.announcement-icon {
+.announcement-icon svg {
     font-size: 35px;
-    color: #ed174c;
+    color: hsl(315, 80%, 86%);
+    stroke: #a60000;
+    fill: hsl(330, 100%, 87%);
+
 }
 
 .announcement h3 {
@@ -334,30 +308,6 @@ th, td {
     color: #d9002e;
     font-weight: 600;
     font-size: 12px;
-}
-
-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 15px;
-    margin-top: auto;
-    padding: 38px 10px 0;
-    color: #686878;
-    font-size: 13px;
-    font-weight: 600;
-}
-
-footer div {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
-footer a {
-    color: #d9002e;
-    text-decoration: none;
 }
 
 .today-tasks-panel {

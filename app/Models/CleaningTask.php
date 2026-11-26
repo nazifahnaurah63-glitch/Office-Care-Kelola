@@ -12,6 +12,7 @@ class CleaningTask extends Model
         'task_date',
         'assigned_to',
         'status',
+        'priority',
     ];
 
     protected function casts(): array

@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="{{ asset('css/sidebar.css') }}">
+<link rel="stylesheet" href="{{ asset('css/partials/sidebar.css') }}">
 
 <aside class="sidebar">
     <div class="side-brand">
@@ -89,7 +89,7 @@
         @endif
 
         @if ($can('cleaning_tasks.view'))
-            <a href="{{ route('cleaning-tasks.index') }}" class="menu-item">
+            <a href="{{ route('cleaning-tasks.index') }}" class="menu-item {{ request()->routeIs('cleaning-tasks.*') ? 'active' : '' }}">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M9 6h12M9 12h12M9 18h12"/>
                     <path d="M3 5h2v2H3zM3 11h2v2H3zM3 17h2v2H3z"/>
@@ -99,7 +99,7 @@
         @endif
 
         @if ($can('cleaning_activities.view'))
-            <a href="#" class="menu-item">
+            <a href="{{ route('cleaning-activities.index') }}" class="menu-item {{ request()->routeIs('cleaning-activities*') ? 'active' : '' }}">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                     <rect x="2.5" y="2.5" width="19" height="19" rx="4"/>
                     <path d="M6 7h5l7 10h-5L6 7Z"/>
@@ -110,10 +110,14 @@
 
         @if ($can('announcements.view'))
             <a href="#" class="menu-item">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M3 11 21 6v12L3 14v-3Z"/>
-                    <path d="M11 16v5H7l-2-6"/>
-                    <path d="M21 10v4"/>
+               <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 8.5C3 8.5 2 10 2 12s1 3.5 3 3.5"/>
+                    <path d="M5 8.5C10 8.5 15 6.5 20 4v16c-5-2.5-10-4.5-15-4.5z"/>
+                    <path d="M5 15.5 6 20a1.5 1.5 0 0 0 3 0v-4.8"/>
+                    <path d="M20 10h1a2 2 0 0 1 0 4h-1"/>
+                    <path d="m22 7 1.5-1.5"/>
+                    <path d="m22 17 1.5 1.5"/>
+                    <path d="M23 12h1"/>
                 </svg>
                 <span>Announcement</span>
             </a>

@@ -1,0 +1,23 @@
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: auto;
+    padding: 38px 10px 0;
+    color: #686878;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+footer div {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+footer a {
+    color: #d9002e;
+    text-decoration: none;
+}
